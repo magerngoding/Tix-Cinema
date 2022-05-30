@@ -5,8 +5,6 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -76,24 +74,23 @@ class Ticket_detail extends StatelessWidget {
               ElevatedButton(
                 onPressed: () {
                   showDialog(
-                    context: context,
-                    builder: (context) => AlertDialog(
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15)),
-                      title: Text("Confirmation Box"),
-                      content: Text("Do you want to cancel the order ?"),
-                      actions: [
-                        ElevatedButton(
-                          onPressed: () {},
-                          child: Text("Yes"),
-                        ),
-                        ElevatedButton(
-                          onPressed: () {},
-                          child: Text("No"),
-                        ),
-                      ],
-                    ),
-                  );
+                      context: context,
+                      builder: (context) => AlertDialog(
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(15)),
+                            title: Text("Confirmation Box"),
+                            content: Text("Do you want to cancel the order ?"),
+                            actions: [
+                              ElevatedButton(
+                                onPressed: () {},
+                                child: Text("Yes"),
+                              ),
+                              ElevatedButton(
+                                onPressed: () {},
+                                child: Text("No"),
+                              ),
+                            ],
+                          ));
                 },
                 child: Text(
                   "Cancel order",

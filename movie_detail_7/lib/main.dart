@@ -20,7 +20,7 @@ class MovieDetail_7 extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         leading: Icon(Icons.arrow_back),
-        title: Text("Movie Detail"),
+        title: Text("MOVIE DETAIL"),
         backgroundColor: Colors.blueGrey[900],
       ),
       body: Container(
