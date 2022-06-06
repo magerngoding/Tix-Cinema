@@ -1,15 +1,30 @@
 import 'package:flutter/material.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 
 class HomePage extends StatefulWidget {
   @override
   State<HomePage> createState() => _HomePageState();
 }
 
+List imgList = [
+  'Tix.png',
+  'Tix2.png',
+  'Tix3.png',
+];
+
 class _HomePageState extends State<HomePage> {
+  List<T> map<T>(List list, Function handler) {
+    List<T> result = [];
+    for (var i = 0; i < list.length; i++) {
+      result.add(handler(i, list[i]));
+    }
+    return result;
+  }
+
   late int index;
 
   List showWidhet = [
-    // INDEX KE - 0
+    // INDEX KE - 0 -> HOME
     Container(
       color: Colors.blueGrey[900],
       child: ListView(
@@ -27,7 +42,7 @@ class _HomePageState extends State<HomePage> {
                       color: Colors.white,
                     ),
                     Text(
-                      "  Malang City ",
+                      "  Bogor ",
                       style: TextStyle(
                         color: Colors.white.withOpacity(0.5),
                         fontSize: 16,
@@ -107,19 +122,62 @@ class _HomePageState extends State<HomePage> {
                     )
                   ],
                 ),
-                SizedBox(
-                  height: 10,
-                ),
-                Row(
-                  children: <Widget>[
-                    ClipRRect(
-                      borderRadius: BorderRadius.circular(15),
-                      child: Image.asset(
-                        'assets/images/Tix.png',
-                        height: 100,
-                      ),
-                    )
-                  ],
+
+                // Row(
+                //   children: <Widget>[
+                //     ClipRRect(
+                //       borderRadius: BorderRadius.circular(15),
+                //       child: Row(
+                //         children: [
+                //           Image.asset(
+                //             'assets/images/Tix.png',
+                //             height: 100,
+                //           ),
+                //         ],
+                //       ),
+                //     )
+                //   ],
+                // ),
+                Center(
+                  child: Column(
+                    children: <Widget>[
+                      Container(
+                        child: Container(
+                          child: CarouselSlider(
+                            options: CarouselOptions(
+                              autoPlayCurve: Curves.fastOutSlowIn,
+                              pauseAutoPlayOnTouch: true,
+                              enlargeCenterPage: true,
+                              viewportFraction: 0.8,
+                              scrollDirection: Axis.horizontal,
+                              onPageChanged: (index, reason) {
+                                setState(
+                                  () {
+                                    var _currentIndex = index;
+                                  },
+                                );
+                              },
+                            ),
+                            items: imgList.map((imgUrl) {
+                              return Builder(
+                                builder: (BuildContext context) {
+                                  return Container(
+                                    width: MediaQuery.of(context).size.width,
+                                    height: MediaQuery.of(context).size.height,
+                                    child: Container(
+                                      child: Image.asset(
+                                        'assets/images/Tix.png',
+                                      ),
+                                    ),
+                                  );
+                                },
+                              );
+                            }).toList(),
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
                 ),
               ],
             ),
@@ -127,8 +185,8 @@ class _HomePageState extends State<HomePage> {
         ],
       ),
     ),
-    // INDEX KE - 1
 
+    // INDEX KE - 1 -> TICKET
     Container(
       color: Colors.blueGrey[900],
       child: Center(
@@ -138,7 +196,7 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
     ),
-
+    // MOVIE DETAIL
     // Container(
     //   color: Colors.blueGrey[900],
     //   child: Center(
@@ -216,7 +274,8 @@ class _HomePageState extends State<HomePage> {
     //     ),
     //   ),
     // ),
-    // INDEX KE - 2
+
+    // INDEX KE - 2 -> ACCOUNT
     Container(
       color: Colors.blueGrey[900],
       child: ListView(
@@ -235,11 +294,11 @@ class _HomePageState extends State<HomePage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      "Ihzamastury",
+                      "Sirajhafizh",
                       style: TextStyle(color: Colors.white, fontSize: 20),
                     ),
                     Text(
-                      "ihzacreative@gmail.com",
+                      "sirajh611@gmail.com",
                       style: TextStyle(color: Colors.white, fontSize: 20),
                     ),
                   ],
@@ -349,7 +408,7 @@ class _HomePageState extends State<HomePage> {
                 style: const TextStyle(
                   fontWeight: FontWeight.bold,
                 )),
-            Text("Ihza")
+            Text("Hafizh")
           ],
         ),
         actions: [
@@ -390,3 +449,5 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
+
+void setState(Null Function() param0) {}
