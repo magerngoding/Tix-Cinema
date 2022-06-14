@@ -1,27 +1,21 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:dropdown_search/dropdown_search.dart';
 
 class HomePage extends StatefulWidget {
+  const HomePage({Key? key}) : super(key: key);
+
   @override
   State<HomePage> createState() => _HomePageState();
 }
 
-List imgList = [
-  'Tix.png',
-  'Tix2.png',
-  'Tix3.png',
-];
+final List<String> imgList = ['Tix.png', 'Tix.png2', 'Tix3.png'];
+final items = ["Bogor City", "Jakarta", "Bekasi", 'Depok'];
 
 class _HomePageState extends State<HomePage> {
-  List<T> map<T>(List list, Function handler) {
-    List<T> result = [];
-    for (var i = 0; i < list.length; i++) {
-      result.add(handler(i, list[i]));
-    }
-    return result;
-  }
-
-  late int index;
+  int index = 0; // untuk icon navigator
 
   List showWidhet = [
     // INDEX KE - 0 -> HOME
@@ -35,24 +29,28 @@ class _HomePageState extends State<HomePage> {
             height: double.maxFinite,
             child: Column(
               children: [
+                // Icon(
+                //   Icons.add_location_alt_outlined,
+                //   color: Colors.white,
+                // ),
                 Row(
-                  children: <Widget>[
-                    Icon(
-                      Icons.add_location_alt_outlined,
-                      color: Colors.white,
-                    ),
-                    Text(
-                      "  Bogor ",
-                      style: TextStyle(
-                        color: Colors.white.withOpacity(0.5),
-                        fontSize: 16,
-                      ),
-                    ),
-                    Icon(
-                      Icons.arrow_drop_down,
-                      color: Colors.white,
-                      size: 30,
-                    ),
+                  children: [
+                    // Icon(
+                    //   Icons.add_location_alt_outlined,
+                    //   color: Colors.white,
+                    // ),
+                    // Text(
+                    //   "  Bogor ",
+                    //   style: TextStyle(
+                    //     color: Colors.white.withOpacity(0.5),
+                    //     fontSize: 16,
+                    //   ),
+                    // ),
+                    // Icon(
+                    //   Icons.arrow_drop_down,
+                    //   color: Colors.white,
+                    //   size: 30,
+                    // ),
                   ],
                 ),
                 SizedBox(
@@ -93,13 +91,23 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ],
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Image.asset(
-                      'assets/images/Shang-Chi.png',
+                Container(
+                  child: CarouselSlider(
+                    options: CarouselOptions(
+                      viewportFraction: 0.8,
+                      enlargeCenterPage: true,
+                      scrollDirection: Axis.horizontal,
                     ),
-                  ],
+                    items: imgList
+                        .map(
+                          (item) => Container(
+                            child: Center(
+                              child: Image.asset('assets/images/Shang-Chi.png'),
+                            ),
+                          ),
+                        )
+                        .toList(),
+                  ),
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -122,61 +130,22 @@ class _HomePageState extends State<HomePage> {
                     )
                   ],
                 ),
-
-                // Row(
-                //   children: <Widget>[
-                //     ClipRRect(
-                //       borderRadius: BorderRadius.circular(15),
-                //       child: Row(
-                //         children: [
-                //           Image.asset(
-                //             'assets/images/Tix.png',
-                //             height: 100,
-                //           ),
-                //         ],
-                //       ),
-                //     )
-                //   ],
-                // ),
-                Center(
-                  child: Column(
-                    children: <Widget>[
-                      Container(
-                        child: Container(
-                          child: CarouselSlider(
-                            options: CarouselOptions(
-                              autoPlayCurve: Curves.fastOutSlowIn,
-                              pauseAutoPlayOnTouch: true,
-                              enlargeCenterPage: true,
-                              viewportFraction: 0.8,
-                              scrollDirection: Axis.horizontal,
-                              onPageChanged: (index, reason) {
-                                setState(
-                                  () {
-                                    var _currentIndex = index;
-                                  },
-                                );
-                              },
+                Container(
+                  child: CarouselSlider(
+                    options: CarouselOptions(
+                      viewportFraction: 0.8,
+                      enlargeCenterPage: true,
+                      scrollDirection: Axis.horizontal,
+                    ),
+                    items: imgList
+                        .map(
+                          (item) => Container(
+                            child: Center(
+                              child: Image.asset('assets/images/Tix.png'),
                             ),
-                            items: imgList.map((imgUrl) {
-                              return Builder(
-                                builder: (BuildContext context) {
-                                  return Container(
-                                    width: MediaQuery.of(context).size.width,
-                                    height: MediaQuery.of(context).size.height,
-                                    child: Container(
-                                      child: Image.asset(
-                                        'assets/images/Tix.png',
-                                      ),
-                                    ),
-                                  );
-                                },
-                              );
-                            }).toList(),
                           ),
-                        ),
-                      )
-                    ],
+                        )
+                        .toList(),
                   ),
                 ),
               ],
@@ -389,11 +358,6 @@ class _HomePageState extends State<HomePage> {
       ),
     ),
   ];
-  @override
-  void initState() {
-    index = 0;
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -449,5 +413,3 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
-
-void setState(Null Function() param0) {}
