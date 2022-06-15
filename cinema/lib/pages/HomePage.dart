@@ -1,8 +1,5 @@
-// ignore_for_file: file_names
-
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:dropdown_search/dropdown_search.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -11,8 +8,20 @@ class HomePage extends StatefulWidget {
   State<HomePage> createState() => _HomePageState();
 }
 
-final List<String> imgList = ['Tix.png', 'Tix.png2', 'Tix3.png'];
-final items = ["Bogor City", "Jakarta", "Bekasi", 'Depok'];
+final List<String> imgList = [
+  'Tix.png',
+  'Tix.png2',
+  'Tix3.png'
+]; // List gambar assets
+
+final items = [
+  "Bogor City",
+  "Jakarta",
+  "Bekasi",
+  'Depok'
+]; // List of items in our dropdown menu
+
+String dropdownKota = 'Bogor City'; // Initial Selected Value
 
 class _HomePageState extends State<HomePage> {
   int index = 0; // untuk icon navigator
@@ -29,28 +38,47 @@ class _HomePageState extends State<HomePage> {
             height: double.maxFinite,
             child: Column(
               children: [
-                // Icon(
-                //   Icons.add_location_alt_outlined,
-                //   color: Colors.white,
-                // ),
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    // Icon(
-                    //   Icons.add_location_alt_outlined,
-                    //   color: Colors.white,
-                    // ),
-                    // Text(
-                    //   "  Bogor ",
-                    //   style: TextStyle(
-                    //     color: Colors.white.withOpacity(0.5),
-                    //     fontSize: 16,
-                    //   ),
-                    // ),
-                    // Icon(
-                    //   Icons.arrow_drop_down,
-                    //   color: Colors.white,
-                    //   size: 30,
-                    // ),
+                    Icon(
+                      Icons.add_location_alt_outlined,
+                      color: Colors.white,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 10),
+                      child: DropdownButton(
+                        style: TextStyle(color: Colors.grey, fontSize: 16),
+
+                        // Initial Value
+                        value: dropdownKota,
+
+                        // Down Arrow Icon
+                        icon: Padding(
+                          padding: const EdgeInsets.only(right: 10),
+                          child: const Icon(
+                            Icons.keyboard_arrow_down,
+                            color: Colors.white,
+                          ),
+                        ),
+
+                        // Array list of items
+                        items: items.map((String items) {
+                          return DropdownMenuItem(
+                            value: items,
+                            child: Text(items),
+                          );
+                        }).toList(),
+                        // After selecting the desired option,it will
+                        // change button value to selected value
+                        onChanged: (String? newValue) {
+                          // SET STATE ERORR
+                          //   setState(() {
+                          //     dropdownKota = newValue!;
+                          //  });
+                        },
+                      ),
+                    ),
                   ],
                 ),
                 SizedBox(
@@ -59,16 +87,17 @@ class _HomePageState extends State<HomePage> {
                 Padding(
                   padding: const EdgeInsets.only(right: 20),
                   child: TextFormField(
-                      decoration: new InputDecoration(
-                    labelText: "Search Movie",
-                    icon: Icon(
-                      Icons.search,
-                      color: Colors.white,
+                    decoration: new InputDecoration(
+                      labelText: "Search Movie",
+                      icon: Icon(
+                        Icons.search,
+                        color: Colors.white,
+                      ),
+                      border: OutlineInputBorder(
+                        borderRadius: new BorderRadius.circular(5.0),
+                      ),
                     ),
-                    border: OutlineInputBorder(
-                      borderRadius: new BorderRadius.circular(5.0),
-                    ),
-                  )),
+                  ),
                 ),
                 SizedBox(
                   height: 15,
