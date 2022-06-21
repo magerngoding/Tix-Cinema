@@ -1,3 +1,5 @@
+import 'package:cinema/pages/Account.dart';
+import 'package:cinema/pages/Ticket.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
@@ -41,7 +43,7 @@ class _HomePageState extends State<HomePage> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    Icon(
+                    const Icon(
                       Icons.add_location_alt_outlined,
                       color: Colors.white,
                     ),
@@ -73,15 +75,15 @@ class _HomePageState extends State<HomePage> {
                         // change button value to selected value
                         onChanged: (String? newValue) {
                           // SET STATE ERORR
-                          //   setState(() {
-                          //     dropdownKota = newValue!;
-                          //  });
+                          // setState(() {
+                          //   dropdownKota = newValue!;
+                          // });
                         },
                       ),
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 Padding(
@@ -99,7 +101,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 15,
                 ),
                 Row(
@@ -147,7 +149,7 @@ class _HomePageState extends State<HomePage> {
                     )
                   ],
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 Row(
                   children: [
                     Text(
@@ -185,207 +187,10 @@ class _HomePageState extends State<HomePage> {
     ),
 
     // INDEX KE - 1 -> TICKET
-    Container(
-      color: Colors.blueGrey[900],
-      child: Center(
-        child: Text(
-          "TICKET",
-          style: TextStyle(color: Colors.white),
-        ),
-      ),
-    ),
-    // MOVIE DETAIL
-    // Container(
-    //   color: Colors.blueGrey[900],
-    //   child: Center(
-    //     child: Column(
-    //       children: [
-    //         Image.asset(
-    //           'assets/images/Shang-Chi.png',
-    //           height: 250,
-    //         ),
-    //         SizedBox(height: 10),
-    //         Text(
-    //           "SHANG-CHI AND THE LEGEND",
-    //           style: TextStyle(
-    //               color: Colors.white,
-    //               fontSize: 16,
-    //               fontWeight: FontWeight.bold),
-    //         ),
-    //         Text(
-    //           " OF THE TEN RINGS",
-    //           style: TextStyle(
-    //               color: Colors.white,
-    //               fontSize: 16,
-    //               fontWeight: FontWeight.bold),
-    //         ),
-    //         SizedBox(
-    //           height: 20,
-    //         ),
-    //         Text(
-    //           "09:00 WIB | 18 NOV 2021",
-    //           style: TextStyle(color: Colors.white),
-    //         ),
-    //         Text(
-    //           "Transmart MX Mall XXI",
-    //           style: TextStyle(color: Colors.white),
-    //         ),
-    //         Text(
-    //           "E8 ; E7",
-    //           style: TextStyle(color: Colors.white),
-    //         ),
-    //         SizedBox(
-    //           height: 20,
-    //         ),
-    //         Image.asset(
-    //           'assets/images/Barcode.png',
-    //         ),
-    //         SizedBox(
-    //           height: 10,
-    //         ),
-    //         ElevatedButton(
-    //           onPressed: () {
-    //             showDialog(
-    //                 context: context,
-    //                 builder: (context) => AlertDialog(
-    //                       shape: RoundedRectangleBorder(
-    //                           borderRadius: BorderRadius.circular(15)),
-    //                       title: Text("Confirmation Box"),
-    //                       content: Text("Do you want to cancel the order ?"),
-    //                       actions: [
-    //                         ElevatedButton(
-    //                           onPressed: () {},
-    //                           child: Text("Yes"),
-    //                         ),
-    //                         ElevatedButton(
-    //                           onPressed: () {},
-    //                           child: Text("No"),
-    //                         ),
-    //                       ],
-    //                     ));
-    //           },
-    //           child: Text(
-    //             "Cancel order",
-    //           ),
-    //         )
-    //       ],
-    //     ),
-    //   ),
-    // ),
+    Ticket(),
 
     // INDEX KE - 2 -> ACCOUNT
-    Container(
-      color: Colors.blueGrey[900],
-      child: ListView(
-        children: [
-          Container(
-            child: Row(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(20),
-                  child: Image.asset(
-                    'assets/images/profile.png',
-                    fit: BoxFit.cover,
-                  ),
-                ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      "Sirajhafizh",
-                      style: TextStyle(color: Colors.white, fontSize: 20),
-                    ),
-                    Text(
-                      "sirajh611@gmail.com",
-                      style: TextStyle(color: Colors.white, fontSize: 20),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ),
-          Row(
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(12),
-                child: Text(
-                  "Acoount",
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 25),
-                ),
-              )
-            ],
-          ),
-          Container(
-            color: Colors.blueGrey[500],
-            child: Padding(
-              padding: const EdgeInsets.all(15),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    "Profile",
-                    style: TextStyle(color: Colors.white, fontSize: 18),
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Text(
-                    "Payment",
-                    style: TextStyle(color: Colors.white, fontSize: 18),
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Text(
-                    "Wishlist",
-                    style: TextStyle(color: Colors.white, fontSize: 18),
-                  ),
-                ],
-              ),
-            ),
-          ),
-          Row(
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(12),
-                child: Text(
-                  "Other",
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 25),
-                ),
-              )
-            ],
-          ),
-          Container(
-            color: Colors.blueGrey[500],
-            child: Padding(
-              padding: const EdgeInsets.all(15),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    "Help",
-                    style: TextStyle(color: Colors.white, fontSize: 18),
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Text(
-                    "About",
-                    style: TextStyle(color: Colors.white, fontSize: 18),
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ],
-      ),
-    ),
+    Account(),
   ];
 
   @override
