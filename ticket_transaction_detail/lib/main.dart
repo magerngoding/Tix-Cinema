@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -54,6 +56,7 @@ class TicketTransactionDetail extends StatelessWidget {
                   height: 25,
                 ),
                 Container(
+                  height: 110,
                   color: Colors.blueGrey[700],
                   child: Padding(
                     padding: const EdgeInsets.only(left: 20),
@@ -63,14 +66,7 @@ class TicketTransactionDetail extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              "ESCAPE ROOM : TOURNAMENT",
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                            Text(
-                              "OF CHAMPIONS",
+                              "ESCAPE ROOM : TOURNAMENT\nOF CHAMPIONS",
                               style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 15,
@@ -118,6 +114,7 @@ class TicketTransactionDetail extends StatelessWidget {
                   height: 30,
                 ),
                 Container(
+                  height: 110,
                   color: Colors.blueGrey[700],
                   child: Padding(
                     padding: const EdgeInsets.only(left: 20),
@@ -160,6 +157,7 @@ class TicketTransactionDetail extends StatelessWidget {
                   height: 25,
                 ),
                 Container(
+                  height: 110,
                   color: Colors.blueGrey[700],
                   child: Padding(
                     padding: const EdgeInsets.only(left: 20),

@@ -68,6 +68,8 @@ flutter:
     - assets/images/Tix.png
     - assets/images/Tix2.png
     - assets/images/Tix3.png
+    - assets/images/Eternals.png
+    - assets/images/EternalsVid.png
   
 
   # An image asset can refer to one or more resolution-specific "variants", see

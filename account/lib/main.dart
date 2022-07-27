@@ -18,36 +18,20 @@ class Account extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(""),
-        backgroundColor: Colors.blueGrey[900],
-      ),
       backgroundColor: Colors.blueGrey[900],
       body: ListView(children: [
-        Container(
-          child: Row(
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(20),
-                child: Image.asset(
-                  'assets/images/profile.png',
-                  fit: BoxFit.cover,
-                ),
-              ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    "Ihzamastury",
-                    style: TextStyle(color: Colors.white, fontSize: 20),
-                  ),
-                  Text(
-                    "ihzacreative@gmail.com",
-                    style: TextStyle(color: Colors.white, fontSize: 20),
-                  ),
-                ],
-              ),
-            ],
+        Padding(
+          padding: const EdgeInsets.all(15),
+          child: ListTile(
+            leading: Image.asset('assets/images/profile.png'),
+            title: Text(
+              "Muhammad Siraj Hafizh",
+              style: TextStyle(color: Colors.white, fontSize: 20),
+            ),
+            subtitle: Text(
+              "sirajh611@gmail.com",
+              style: TextStyle(color: Colors.white, fontSize: 15),
+            ),
           ),
         ),
         Row(

@@ -1,5 +1,8 @@
-import 'package:cinema/pages/Account.dart';
-import 'package:cinema/pages/Ticket.dart';
+// ignore_for_file: file_names, prefer_const_constructors
+
+import 'package:cinema/pages/account/Account.dart';
+
+import 'package:cinema/pages/ticket/Ticket.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
@@ -83,26 +86,26 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ],
                 ),
-                const SizedBox(
-                  height: 10,
-                ),
                 Padding(
-                  padding: const EdgeInsets.only(right: 20),
-                  child: TextFormField(
-                    decoration: new InputDecoration(
-                      labelText: "Search Movie",
-                      icon: Icon(
-                        Icons.search,
-                        color: Colors.white,
-                      ),
-                      border: OutlineInputBorder(
-                        borderRadius: new BorderRadius.circular(5.0),
-                      ),
+                  padding: const EdgeInsets.all(20),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.blueGrey[700],
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+                    child: TextField(
+                      decoration: InputDecoration(
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(30),
+                          ),
+                          prefixIcon: Icon(
+                            Icons.search,
+                            color: Colors.white,
+                          ),
+                          hintText: "Search Movie",
+                          fillColor: Colors.white),
                     ),
                   ),
-                ),
-                const SizedBox(
-                  height: 15,
                 ),
                 Row(
                   children: [

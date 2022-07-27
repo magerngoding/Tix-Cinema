@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:cinema/pages/movie-details/movieDetail-7.dart';
 import 'package:flutter/material.dart';
-import 'package:movie_detail_6/movieDetal_7.dart';
 
 class MovieDetail_6 extends StatelessWidget {
   @override

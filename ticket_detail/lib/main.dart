@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -36,14 +38,7 @@ class Ticket_detail extends StatelessWidget {
               ),
               SizedBox(height: 10),
               Text(
-                "SHANG-CHI AND THE LEGEND",
-                style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold),
-              ),
-              Text(
-                " OF THE TEN RINGS",
+                "SHANG-CHI AND THE LEGEND OF\n                  THE TEN RINGS",
                 style: TextStyle(
                     color: Colors.white,
                     fontSize: 16,
@@ -87,8 +82,10 @@ class Ticket_detail extends StatelessWidget {
                           onPressed: () {},
                           child: Text("Yes"),
                         ),
-                        ElevatedButton(
-                          onPressed: () {},
+                        TextButton(
+                          onPressed: () {
+                            Navigator.of(context).pop();
+                          },
                           child: Text("No"),
                         ),
                       ],
