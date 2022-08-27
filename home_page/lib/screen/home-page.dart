@@ -1,9 +1,11 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:carousel_slider/carousel_slider.dart';
+
 import 'package:flutter/material.dart';
 
 import 'package:home_page/dummy-data.dart';
+import 'package:home_page/screen/account.dart';
 import 'package:home_page/screen/movie-detail-6.dart';
 
 class HomePage extends StatefulWidget {
@@ -14,6 +16,13 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  int _selectdIndex = 0;
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectdIndex = index;
+    });
+  }
+
   String? city;
 
   @override
@@ -39,7 +48,15 @@ class _HomePageState extends State<HomePage> {
               SizedBox(
                 width: 40,
               ),
-              Image.asset('assets/images/account.png'),
+              GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => Account(),
+                        ));
+                  },
+                  child: Image.asset('assets/images/account.png')),
             ],
           ),
           Container(
@@ -138,43 +155,58 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                   ),
+                  Container(
+                    padding: EdgeInsets.only(left: 20),
+                    child: Row(
+                      children: [
+                        Text(
+                          "Promo",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 23,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Container(
+                    child: CarouselSlider(
+                      items: [
+                        Image.asset('assets/images/tix1.png'),
+                        Image.asset('assets/images/tix2.png'),
+                        Image.asset('assets/images/tix3.png'),
+                      ],
+                      options: CarouselOptions(
+                        enlargeCenterPage: true,
+                        enableInfiniteScroll: true,
+                      ),
+                    ),
+                  )
                 ],
               ),
             ),
           ),
         ],
       ),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _selectdIndex,
+        onTap: _onItemTapped,
+        backgroundColor: Colors.blueGrey[900],
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.airplane_ticket),
+            label: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: '',
+          ),
+        ],
+      ),
     );
   }
 }
-
-// import 'package:carousel_slider/carousel_slider.dart';
-// import 'package:flutter/material.dart';
-// import 'package:home_page/dummy-data.dart';
-
-// class HomePage extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(
-//         title: Text("GFG Slider"),
-//       ),
-//       body: ListView(
-//         children: [
-//           CarouselSlider(
-//             items: [
-//               Image.asset('assets/images/film1.png'),
-//               Image.asset('assets/images/film2.png'),
-//               Image.asset('assets/images/film3.png'),
-//             ],
-//             options: CarouselOptions(
-//               enlargeCenterPage: true,
-//               enableInfiniteScroll: true,
-//               viewportFraction: 0.8,
-//             ),
-//           ),
-//         ],
-//       ),
-//     );
-//   }
-// }

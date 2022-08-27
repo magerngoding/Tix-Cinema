@@ -27,9 +27,11 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+
   carousel_slider: ^4.1.1
   cupertino_icons: ^1.0.2
   dropdown_search: ^5.0.2
+  
   flutter:
     sdk: flutter
 
@@ -53,6 +55,9 @@ flutter:
     - assets/images/film1.png
     - assets/images/film2.png
     - assets/images/film3.png
+    - assets/images/tix1.png
+    - assets/images/tix2.png
+    - assets/images/tix3.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
   # For details regarding adding assets from package dependencies, see
